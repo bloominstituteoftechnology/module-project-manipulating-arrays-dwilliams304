@@ -31,7 +31,21 @@
     // 🧠 There are many ways to solve this, but practice using a for loop to iterate over the array.
     // 🧠 As you have done in the past, declare a variable before you start looping, to accumulate the result.
     function sumNumsFor(nums) {
-
+      if(nums.length === 0){ //Make sure array contains items.
+        return 0;
+      }
+      let addedNumber = 0; //Set starting sum at 0
+      for(let i in nums){
+        numToAdd = nums[i];
+        if(numToAdd === 13){ //If the number in the array is 13, return string and break loop -> do not continue.
+          return "I'm too superstitious!";
+          break;
+        }
+        if(typeof(numToAdd) === 'number'){ //If the number in the array is in fact a number, add it.
+          addedNumber += numToAdd;
+        }
+      }
+      return addedNumber;
     }
 
     // 👉 CHALLENGE 2
@@ -49,8 +63,20 @@
     // 🧠 Examples of usage:
     // sumNumsWhile([1, 2, 3]) // should return 6
     // sumNumsWhile([1, 2, 13]) // should return "I'm too superstitious!"
-    function sumNumsWhile() {
-
+    function sumNumsWhile(nums) {
+      let i = 0;
+      let addedNumber = 0;
+      while(i < nums.length){
+        let numToAdd = nums[i];
+        if(typeof numToAdd === 'number'){
+          if(numToAdd === 13){
+            return "I'm too superstitious!";
+          }
+          addedNumber += numToAdd;
+        }
+        i++;
+      }
+      return addedNumber;
     }
 
     // 👉 CHALLENGE 4
@@ -70,8 +96,11 @@
     // 🧠 There are many ways to solve this, but practice using a while loop.
     // 🧠 Work out using pen and paper how the round number and the lifePoints change after each round.
     // 🧠 As long as there are lifePoints, decrease lifePoints by round number, and increase round number by one.
-    function fightMonsters() {
-
+    function fightMonsters(lifePoints) {
+      let lifeToSubtract;
+      let currentRound;
+      lifeToSubtract = currentRound;
+      
     }
 
     // 👉 CHALLENGE 5
