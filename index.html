@@ -55,7 +55,15 @@
     // ❗ Notes:
     // 🧠 There are many ways to solve this, but practice using a for loop to iterate over the characters of the string.
     function stripVowels(str) {
-
+      const splitStr = str.split('');
+      const result = [];
+      for (let i = 0; i< splitStr.length; i++){
+        const char = splitStr[i];
+        if(char !== 'a' && char !== 'e' && char !== 'i' && char !== 'o' && char !== 'o' && char !== 'u'){
+          result.push(char);
+        }
+      }
+      return result.join('');
     }
 
     // 👉 CHALLENGE 3
@@ -97,10 +105,12 @@
     // 🧠 Work out using pen and paper how the round number and the lifePoints change after each round.
     // 🧠 As long as there are lifePoints, decrease lifePoints by round number, and increase round number by one.
     function fightMonsters(lifePoints) {
-      let lifeToSubtract;
-      let currentRound;
-      lifeToSubtract = currentRound;
-      
+      let currentRound = 0;
+      while(lifePoints > 0){
+        currentRound++;
+        lifePoints -= currentRound;
+      }
+      return `You died in round ${currentRound}`;
     }
 
     // 👉 CHALLENGE 5
@@ -121,8 +131,18 @@
     // 🧠 Ages in the subarrays should appear in the same order they appeared in the original array.
     // 🧠 Examples of usage:
     // separateAges([31, 12, 25, 65, 84, 20]) // should return [[12, 20], [31, 25, 65, 84]]
-    function separateAges() {
-
+    function separateAges(ages) {
+      const under21 = [];
+      const over21 = [];
+      result = [over21, under21];
+      for (let i in ages){
+        let age = ages[i];
+        if (age > 21){
+          over21.push(age)
+        }
+        under21.push(age);
+      }
+      return result;
     }
 
     // 👉 CHALLENGE 7
@@ -132,7 +152,7 @@
     // 🧠 The "tail" prop contains an array holding the elements of the array after the first one.
     // 🧠 Examples of usage:
     // headAndTail([1, 2, 3]) // should return { head: 1, tail: [2, 3] }
-    function headAndTail() {
+    function headAndTail(arr) {
 
     }
 
