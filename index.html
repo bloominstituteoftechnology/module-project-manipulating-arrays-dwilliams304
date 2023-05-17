@@ -55,15 +55,15 @@
     // ❗ Notes:
     // 🧠 There are many ways to solve this, but practice using a for loop to iterate over the characters of the string.
     function stripVowels(str) {
-      const splitStr = str.split('');
-      const result = [];
-      for (let i = 0; i< splitStr.length; i++){
-        const char = splitStr[i];
+      const splitStr = str.split(''); //Split the string into individual chars
+      const result = []; //Initialize a result as an empty array to add items later.
+      for (let i = 0; i< splitStr.length; i++){ //While the index we are searching through is less than the length of the array
+        const char = splitStr[i]; //Current character is the letter we found within the split string
         if(char !== 'a' && char !== 'e' && char !== 'i' && char !== 'o' && char !== 'o' && char !== 'u'){
-          result.push(char);
+          result.push(char); //If the character we found is none of these letters (vowels), add it to empty array
         }
       }
-      return result.join('');
+      return result.join(''); //Join string back together within the array.
     }
 
     // 👉 CHALLENGE 3
@@ -72,19 +72,19 @@
     // sumNumsWhile([1, 2, 3]) // should return 6
     // sumNumsWhile([1, 2, 13]) // should return "I'm too superstitious!"
     function sumNumsWhile(nums) {
-      let i = 0;
-      let addedNumber = 0;
+      let i = 0; //initialize i for index (because we're using while)
+      let addedNumber = 0; //initialize a variable that starts at 0, which will be our result
       while(i < nums.length){
-        let numToAdd = nums[i];
-        if(typeof numToAdd === 'number'){
+        let numToAdd = nums[i]; //The number we want to add is the number we just found in the index.
+        if(typeof numToAdd === 'number'){ //If the what we found in the index is a number, continue
           if(numToAdd === 13){
-            return "I'm too superstitious!";
+            return "I'm too superstitious!"; //If the number we found in the index is 13, stop and break loop.
           }
-          addedNumber += numToAdd;
+          addedNumber += numToAdd;// If number we want to add is a number, and our loop hasn't been broken - add to result
         }
-        i++;
+        i++; //Increment the index
       }
-      return addedNumber;
+      return addedNumber; //Give the final product.
     }
 
     // 👉 CHALLENGE 4
@@ -105,12 +105,12 @@
     // 🧠 Work out using pen and paper how the round number and the lifePoints change after each round.
     // 🧠 As long as there are lifePoints, decrease lifePoints by round number, and increase round number by one.
     function fightMonsters(lifePoints) {
-      let currentRound = 0;
+      let currentRound = 0; //Current round is 0.
       while(lifePoints > 0){
-        currentRound++;
-        lifePoints -= currentRound;
+        currentRound++; //As long as we have lifepoints, increase the round.
+        lifePoints -= currentRound; //Subtract the lifepoints by the current round. If round 5, subtract 5 lifepoints.
       }
-      return `You died in round ${currentRound}`;
+      return `You died in round ${currentRound}`; //Once our lifepoints are 0, return when we died.
     }
 
     // 👉 CHALLENGE 5
@@ -121,14 +121,14 @@
     // ❗ Notes:
     // 🧠 Use any kind of loop you'd like and the push method to populate the array of even numbers.
     function findEvenNums(arr) {
-      const result = [];
+      const result = []; //Initialize empty array to add elements to afterwards.
       for(let i in arr){
-        let int = arr[i];
-        if(int % 2 === 0){
-          result.push(int);
+        let int = arr[i]; //The int is the current integer we found at this array's index.
+        if(int % 2 === 0){ 
+          result.push(int); //If the int is even, add it to the result array. If not - do nothing.
         }
       }
-      return result;
+      return result; //Return the resulting array after iterating through given array.
     }
 
     // 👉 CHALLENGE 6
@@ -140,16 +140,16 @@
     // separateAges([31, 12, 25, 65, 84, 20]) // should return [[12, 20], [31, 25, 65, 84]]
     function separateAges(ages) {
       const under21 = [];
-      const over21 = [];
+      const over21 = []; //Initialize two separate arrays to put ages into.
       for (let i in ages){
-        let age = ages[i];
+        let age = ages[i]; //The age is the current number we found at this index within the array.
         if (age >= 21){
-          over21.push(age)
+          over21.push(age) //If they are 21 or older, add them to the over21 array.
         }else{
-          under21.push(age);
+          under21.push(age); //If they are not, add them to the under21 array.
         }
       }
-      result = [under21, over21];
+      result = [under21, over21]; //Result array combines the under21 and over21 arrays into one singular array.
       return result;
     }
 
@@ -161,7 +161,13 @@
     // 🧠 Examples of usage:
     // headAndTail([1, 2, 3]) // should return { head: 1, tail: [2, 3] }
     function headAndTail(arr) {
-
+      let resultTail = []; //Initialize empty array for tails.
+      for(let i = 1; i < arr.length; i++){ //Start index at 1, as the head will always be index 0.
+        toAdd = arr[i];
+        resultTail.push(toAdd); //While the index we are at is not greater than the array's length -- add it to the tailArray
+      }
+      let obj = {head: arr[0], tail: resultTail}; //The obj's head will always be index 0 in array, tail will be all the rest.
+      return obj;
     }
 
     // 👉 CHALLENGE 8
@@ -171,8 +177,27 @@
     // nestedLoops(['hello', 'goodbye']) // should return ['hEllO', 'gOOdbyE']
     // ❗ Notes:
     // 🧠 To capitalize a string you can use its toUpperCase method: "a".toUpperCase() returns "A"
-    function nestedLoops() {
+    function nestedLoops(arr) {
+      let result = [];
+      for(let i in arr){
+        let word = arr[i]; //The word is what we found at this index in the array.
+        
+        let modifiedWord = ''; //Initialize an empty string to add to later.
+        for(let i in word){
+          let char = word[i] //The character we found is at this index within the word's array
+          if(char === 'a' || char === 'e' || char === 'i' || char === 'o' || char === 'u'){
+            let modifiedChar = char.toUpperCase(); //If any character is a vowel, make it uppercase
+            modifiedWord += modifiedChar; //Then add all modified letters to the empty string for the now modified word
+          }
+          else{
+            modifiedWord += char; //If it is not a vowel, just add the character as it was.
+          }
+        }
 
+
+        result.push(modifiedWord); //Add the modified word to the empty result array we initialized earlier
+      }
+      return result; //Return the resulting array.
     }
 
     // 👉 CHALLENGE 9
@@ -186,7 +211,16 @@
     // 🧠 Practice using pop and slice.
     // 🧠 Note that pop modifies the original array in place and returns the "popped" element, whereas slice gives us a brand new array.
     function crazyTrimmer(arr) {
-
+      arrayElements = arr.length;
+      if(arrayElements % 2 === 0){
+        //is even - do things (delete last, return array)
+        arr.pop();
+        return arr;
+      }
+      else{
+        //is odd - do things (list all elements except first or last)
+        return arr.slice(1, arrayElements - 1);
+      }
     }
 
     // 🧪 TESTS, do not work below this line
