@@ -120,8 +120,15 @@
     // findEvenNums([0, 1, 2, 3, 4]) // should return [0, 2, 4]
     // ❗ Notes:
     // 🧠 Use any kind of loop you'd like and the push method to populate the array of even numbers.
-    function findEvenNums() {
-
+    function findEvenNums(arr) {
+      const result = [];
+      for(let i in arr){
+        let int = arr[i];
+        if(int % 2 === 0){
+          result.push(int);
+        }
+      }
+      return result;
     }
 
     // 👉 CHALLENGE 6
@@ -134,14 +141,15 @@
     function separateAges(ages) {
       const under21 = [];
       const over21 = [];
-      result = [over21, under21];
       for (let i in ages){
         let age = ages[i];
-        if (age > 21){
+        if (age >= 21){
           over21.push(age)
+        }else{
+          under21.push(age);
         }
-        under21.push(age);
       }
+      result = [under21, over21];
       return result;
     }
 
